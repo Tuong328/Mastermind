@@ -9,7 +9,7 @@ public class peg {
     private boolean green;
     private boolean pink;
     private boolean yellow;
-    private boolean purple;
+    private boolean red;
 
 
     public peg() {
@@ -32,8 +32,8 @@ public class peg {
             yellow = true;
             color = "yellow";
         } else if (i == 5) {
-            purple = true;
-            color = "purple";
+            red = true;
+            color = "red";
         }
     }
 
@@ -56,8 +56,8 @@ public class peg {
     public boolean isYellow() {
         return yellow;
     }
-    public boolean isPurple() {
-        return purple;
+    public boolean isRed() {
+        return red;
     }
 
 
