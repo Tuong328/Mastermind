@@ -1,6 +1,7 @@
 # Mastermind
-My own take on the Mastermind logic puzzle
+My own take on the Mastermind logic puzzle - James Tuong
 
 
 
-(In Progress Project)
+
+(Completed as of 12/8/20)
