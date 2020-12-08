@@ -57,8 +57,12 @@ public class main {
         while (!input.equals("close")) {
             input = scanner.nextLine();
             if (input.equals(correctAnswer)) {
+                System.out.println("4 Black Pegs");
                 System.out.println("Correct! Game over, try another!");
-                scanner.close();
+                input = "close";
+            }
+            if (!input.equals(correctAnswer)) {
+
             }
         }
         scanner.close();
