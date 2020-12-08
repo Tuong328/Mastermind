@@ -34,22 +34,25 @@ public class main {
         for (int i = 0; i < 4; i++) {
             pegBoard.add(new peg());
         }
-        //This for loop gives us our 4 colors;
+        System.out.println("Board generated, Good Luck!");
+
+        /*This for loop gives us our 4 colors in text if we want them
         for (int i = 0; i < 4; i++) {
           System.out.println(pegBoard.get(i).color());
-        }
+        }*/
+
         System.out.println("Take your guess");
+        System.out.println("6 Letters are: p, o, g, b, y, r");
 
         //This for loop gives us our correct answer;
         String correctAnswer = "";
         for (int i = 0; i < 4; i++) {
             correctAnswer += pegBoard.get(i).color().charAt(0);
         }
-        System.out.println(correctAnswer);
 
         //Scanners for User Inputs;
         Scanner scanner = new Scanner(System.in);
-        Scanner inputs = new Scanner(System.in);
+
 
         /** Keep in mind that the user gets 6 turns
          * they need to know if they have the right
@@ -65,17 +68,13 @@ public class main {
             if (input.length() != 4 || inputCheck(input, blackList)) {
                 System.out.println("Invalid guess, you do not lose any attempts");
                 guessesLeft++;
-            }
-            //Correct Guess
-            if (input.equals(correctAnswer)) {
+            } else if (input.equals(correctAnswer)) {
                 System.out.println("4 Black Pegs");
                 System.out.println("Correct! Game over, try another!");
                 guessesLeft--;
                 System.out.println("You finished with " + guessesLeft + " guesses left");
                 guessesLeft = -10; //Arbitary number for later method that signifies end of game;
-            }
-            //Incorrect Guess
-            if (!input.equals(correctAnswer)) {
+            } else if (!input.equals(correctAnswer)) {
                 System.out.println(BWPegs(input, correctAnswer));
             }
             guessesLeft--;
@@ -111,60 +110,89 @@ public class main {
             }
         }
         //For white pegs
-        int b = 4;
-        int o = 4;
-        int g = 4;
-        int p = 4;
-        int y = 4;
-        int r = 4;
+        int b = 0;
+        int o = 0;
+        int g = 0;
+        int p = 0;
+        int y = 0;
+        int r = 0;
         for (int i = 0; i < input.length(); i++) {
             if (input.charAt(i) == 'b') {
-                b--;
+                b++;
             }
             if (input.charAt(i) == 'o') {
-                o--;
+                o++;
             }
             if (input.charAt(i) == 'g') {
-                g--;
+                g++;
             }
             if (input.charAt(i) == 'p') {
-                p--;
+                p++;
             }
             if (input.charAt(i) == 'y') {
-                y--;
+                y++;
             }
             if (input.charAt(i) == 'r') {
-                r--;
+                r++;
             }
         }
-
-        int b1 = 4;
-        int o1 = 4;
-        int g1 = 4;
-        int p1 = 4;
-        int y1 = 4;
-        int r1 = 4;
+        //Correct Answer
+        int b1 = 0;
+        int o1 = 0;
+        int g1 = 0;
+        int p1 = 0;
+        int y1 = 0;
+        int r1 = 0;
         for (int i = 0; i < correctAnswer.length(); i++) {
             if (correctAnswer.charAt(i) == 'b') {
-                b--;
+                b1++;
             }
             if (correctAnswer.charAt(i) == 'o') {
-                o--;
+                o1++;
             }
             if (correctAnswer.charAt(i) == 'g') {
-                g--;
+                g1++;
             }
             if (correctAnswer.charAt(i) == 'p') {
-                p--;
+                p1++;
             }
             if (correctAnswer.charAt(i) == 'y') {
-                y--;
+                y1++;
             }
             if (correctAnswer.charAt(i) == 'r') {
-                r--;
+                r1++;
             }
         }
-
+        while (b > 0 && b1 > 0) {
+            white++;
+            b--;
+            b1--;
+        }
+        while (o > 0 && o1 > 0) {
+            white++;
+            o--;
+            o1--;
+        }
+        while (g > 0 && g1 > 0) {
+            white++;
+            g--;
+            g1--;
+        }
+        while (p > 0 && p1 > 0) {
+            white++;
+            p--;
+            p1--;
+        }
+        while (y > 0 && y1 > 0) {
+            white++;
+            y--;
+            y1--;
+        }
+        while (r > 0 && r1 > 0) {
+            white++;
+            r--;
+            r1--;
+        }
 
         white = white - black; //Counts blacks as whites so subtract them.
         String BW = black + " Black Pegs, " + white + " White Pegs";
