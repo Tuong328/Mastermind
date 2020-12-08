@@ -72,12 +72,11 @@ public class main {
                 System.out.println("Correct! Game over, try another!");
                 guessesLeft--;
                 System.out.println("You finished with " + guessesLeft + " guesses left");
-                guessesLeft = -10; //Arbitary number for later method;
+                guessesLeft = -10; //Arbitary number for later method that signifies end of game;
             }
             //Incorrect Guess
             if (!input.equals(correctAnswer)) {
-                //System.out.println(BWPegs(input, correctAnswer));
-                //BW pegs
+                System.out.println(BWPegs(input, correctAnswer));
             }
             guessesLeft--;
             if (guessesLeft != -11) {
@@ -101,9 +100,74 @@ public class main {
         return false;
     }
 
-    static String BWPegs(String guess, String correctAnswer) {
 
-        String BW = "";
-        return guess;
+    static String BWPegs(String input, String correctAnswer) {
+        int black = 0;
+        int white = 0;
+        //For black pegs
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == correctAnswer.charAt(i)) {
+                black++;
+            }
+        }
+        //For white pegs
+        int b = 4;
+        int o = 4;
+        int g = 4;
+        int p = 4;
+        int y = 4;
+        int r = 4;
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == 'b') {
+                b--;
+            }
+            if (input.charAt(i) == 'o') {
+                o--;
+            }
+            if (input.charAt(i) == 'g') {
+                g--;
+            }
+            if (input.charAt(i) == 'p') {
+                p--;
+            }
+            if (input.charAt(i) == 'y') {
+                y--;
+            }
+            if (input.charAt(i) == 'r') {
+                r--;
+            }
+        }
+
+        int b1 = 4;
+        int o1 = 4;
+        int g1 = 4;
+        int p1 = 4;
+        int y1 = 4;
+        int r1 = 4;
+        for (int i = 0; i < correctAnswer.length(); i++) {
+            if (correctAnswer.charAt(i) == 'b') {
+                b--;
+            }
+            if (correctAnswer.charAt(i) == 'o') {
+                o--;
+            }
+            if (correctAnswer.charAt(i) == 'g') {
+                g--;
+            }
+            if (correctAnswer.charAt(i) == 'p') {
+                p--;
+            }
+            if (correctAnswer.charAt(i) == 'y') {
+                y--;
+            }
+            if (correctAnswer.charAt(i) == 'r') {
+                r--;
+            }
+        }
+
+
+        white = white - black; //Counts blacks as whites so subtract them.
+        String BW = black + " Black Pegs, " + white + " White Pegs";
+        return BW;
     }
 }
